@@ -1,0 +1,13 @@
+<h2>Stores</h2>
+
+<% if @stores.try(:any?) %>
+<% @stores.each() do |store| %>
+  <ul>
+    <li><a href='/store/<%=store.id()%>'> <%=store.name()%></a></li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>No stores have been added.</p>
+<% end %>
+
+<p><a href="/">Return Home</a></p>

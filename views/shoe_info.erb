@@ -1,0 +1,13 @@
+<h2><%= @shoe.brand() %></h2>
+
+
+<p>
+  <form action="/shoe/<%= @shoe.id()%>" method="post">
+    <label for="deleted"></label>
+    <input name="_method" type="hidden" value="delete" id="deleted">
+
+    <button type="submit" class="btn btn-danger">Delete Brand</button>
+  </form>
+</p>
+<p><a href="/shoes">See All Shoes</a></p>
+<p><a href="/">Return Home</a></p>

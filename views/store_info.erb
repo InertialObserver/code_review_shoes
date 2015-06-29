@@ -1,0 +1,52 @@
+<h2><%= @store.name() %></h2>
+
+<% if @store.shoes.try(:any?) %>
+<% @store.shoes.each() do |shoe| %>
+<ul>
+  <li><a href='/shoe/<%=shoe.id %>'><%= shoe.brand() %></a></li>
+</ul>
+<% end %>
+  <% else %>
+    <p>This store has no inventory of shoes.</p>
+<% end %>
+
+<h4>Add a shoe brand to this store:</h4>
+
+<% if @shoes.try(:any?) %>
+  <form action='/stores/<%= @store.id %>/shoes' method='post'>
+    <% @shoes.each() do |shoe| %>
+      <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='shoe_ids[]' value='<%= shoe.id %>'><%= shoe.brand %>
+          </label>
+      </div>
+      <button type='submit'>Add</button>
+      </form>
+<% end %>
+<% else %>
+  <p>Out of Stock!</p>
+<% end %>
+
+<h4>Edit Store Name:</h4>
+<p>
+  <form action="/stores/<%= @store.id() %>/edit" method="post" class="form-group">
+    <input type="hidden" name="_method" value="patch">
+
+      <input name="name" placeholder="new name" type="text">
+      <button name="button">Edit</button>
+  </form>
+</p>
+
+<p>
+  <form action="/store/<%= @store.id() %>" method="post">
+    <label for="deleted"></label>
+    <input name="_method" type="hidden" value="delete" id="deleted">
+
+    <button type="submit" class="btn btn-danger">Delete Store</button>
+  </form>
+</p>
+
+
+<p><a href="/stores">See All Stores</a></p>
+<p><a href="/shoes">See All Shoes</a></p>
+<p><a href="/">Return Home</a></p>

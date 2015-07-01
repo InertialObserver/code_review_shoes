@@ -1,14 +1,14 @@
 <h2><%= @store.name() %></h2>
 
 <% if @store.shoes.try(:any?) %>
-<% @store.shoes.each() do |shoe| %>
-<ul>
-  <li><a href='/shoe/<%=shoe.id %>'><%= shoe.brand() %></a></li>
-</ul>
+  <% @store.shoes.each() do |shoe| %>
+    <ul>
+      <li><a href='/shoe/<%=shoe.id %>'><%= shoe.brand() %></a></li>
+    </ul>
 <% end %>
   <% else %>
     <p>This store has no inventory of shoes.</p>
-<% end %>
+  <% end %>
 
 <h4>Add a shoe brand to this store:</h4>
 
@@ -20,11 +20,13 @@
             <input type='checkbox' name='shoe_ids[]' value='<%= shoe.id %>'><%= shoe.brand %>
           </label>
       </div>
+    <% end %>
+
       <button type='submit'>Add</button>
-      </form>
-<% end %>
-<% else %>
-  <p>Out of Stock!</p>
+  </form>
+
+  <% else %>
+    <p>Out of Stock!</p>
 <% end %>
 
 <h4>Edit Store Name:</h4>

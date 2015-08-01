@@ -1,3 +1,5 @@
+Epicodus student project: 
+
 This is a small app to track inventory of shoes in shoe stores.
 
 To use:
@@ -14,11 +16,10 @@ In bash type rake db:create db:migrate db:test:prepare
 
 Confirm databases are set up as expected using the psql window in bash
 
-Usage
-
 To use the app:
 
-Run ruby app.rb Navigate in your browser to localhost:4567
+Run ruby app.rb 
+Navigate in your browser to localhost:4567
 
 Known Bugs
 
